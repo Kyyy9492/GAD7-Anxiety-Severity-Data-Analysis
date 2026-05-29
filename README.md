@@ -59,22 +59,7 @@ The total GAD-7 score is used as the primary dependent variable for statistical 
 ## Project Structure
 
 ```text
-General_Anxiety_Disorder-7/
-│
-├── 01_data_cleaning.sql
-├── 02_demographics.sql
-├── 03_bivariate_analysis.sql
-├── 04_bivariate_analysis_continued.ipynb
-├── 05_sensitivity_analysis.ipynb
-├── 06_regression_model.ipynb
-├── 07_cluster_analysis.ipynb
-└── README.md
-```
-
-Recommended future structure:
-
-```text
-GAD7-Anxiety-Severity-Analytics/
+GAD7-Anxiety-Severity-Data-Analysis/
 │
 ├── README.md
 ├── requirements.txt
@@ -84,14 +69,11 @@ GAD7-Anxiety-Severity-Analytics/
 │   ├── 02_demographics.sql
 │   └── 03_bivariate_analysis.sql
 │
-├── notebooks/
-│   ├── 04_bivariate_analysis_continued.ipynb
-│   ├── 05_sensitivity_analysis.ipynb
-│   ├── 06_regression_model.ipynb
-│   └── 07_cluster_analysis.ipynb
-│
-└── reports/
-    └── figures/
+└── notebooks/
+    ├── 04_bivariate_analysis_continued.ipynb
+    ├── 05_sensitivity_analysis.ipynb
+    ├── 06_regression_model.ipynb
+    └── 07_cluster_analysis.ipynb
 ```
 
 ## Analysis Workflow
