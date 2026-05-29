@@ -286,28 +286,6 @@ This project demonstrates:
 - Healthcare / public health analytics interpretation
 - GitHub documentation and reproducible project organization
 
-## Resume Highlights
-
-Potential resume bullets based on this project:
-
-- Analyzed GAD-7 survey data using SQL and Python to evaluate anxiety severity patterns across demographic and socioeconomic groups.
-- Built regression models to assess factors associated with anxiety severity and conducted sensitivity analysis to evaluate the robustness of analytical findings.
-- Applied clustering techniques to identify distinct anxiety-risk profiles and compare GAD-7 burden across demographic subgroups.
-- Developed SQL-based data cleaning, descriptive analysis, and bivariate summary workflows for structured survey analytics.
-- Interpreted statistical and clustering results in a healthcare analytics context, translating model outputs into meaningful public health insights.
-
-## Suggested GitHub About Description
-
-```text
-Analyzed GAD-7 survey data using SQL and Python to study anxiety severity patterns, demographic associations, regression models, and clustering-based risk profiles.
-```
-
-Suggested topics:
-
-```text
-data-analysis, mental-health, healthcare-analytics, survey-analysis, python, sql, regression, clustering, gad7
-```
-
 ## Author Note
 
 This project was built as a step-by-step data analysis practice project combining SQL, Python, statistics, modeling, and healthcare-oriented data interpretation.
