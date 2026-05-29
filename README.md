@@ -1,242 +1,295 @@
-# GAD7-DA-Project
+# GAD7 Anxiety Severity Analytics
 
 ## Project Overview
 
-This project explores anxiety severity based on GAD-7 survey data.  
-The main goal is to understand how demographic and socioeconomic factors are related to anxiety level, and to use different data analysis methods to find meaningful patterns in the dataset.
+This project analyzes GAD-7 survey data to understand how demographic and socioeconomic factors are associated with anxiety severity. The project combines **SQL-based data preparation**, **Python statistical analysis**, **regression modeling**, **sensitivity analysis**, and **clustering** to identify meaningful anxiety-risk patterns across respondent groups.
 
-The project includes:
+The goal is to present a reproducible healthcare / public health analytics workflow that moves from raw survey data cleaning to interpretable findings about anxiety burden.
 
-- data cleaning
-- demographic descriptive analysis
-- bivariate analysis
-- sensitivity analysis
-- regression modeling
-- clustering analysis
-
----
-
-## Research Goal
-
-The main research question of this project is:
+## Research Question
 
 **How are demographic and socioeconomic characteristics associated with GAD-7 anxiety severity?**
 
-This project focuses on several factors, including:
+The analysis focuses on factors such as:
 
-- age
-- gender
-- marriage
-- education
-- income
-- occupation
+- Age
+- Gender
+- Marital status
+- Education level
+- Income level
+- Occupation
 
-The analysis also examines how these characteristics are related to total GAD-7 score and anxiety severity categories.
+The main outcome variable is the **total GAD-7 score**, which is also used to classify anxiety severity categories.
 
----
+## Why This Project Matters
+
+Mental health survey data can help analysts understand which groups may experience higher anxiety burden. Although this project does not make causal claims, it demonstrates how structured survey analysis can support:
+
+- Demographic risk profiling
+- Public health reporting
+- Healthcare data analysis
+- Survey-based statistical modeling
+- Targeted interpretation of anxiety severity patterns
 
 ## Dataset
 
-The dataset is based on GAD-7 questionnaire responses.  
-It contains:
+The dataset is based on GAD-7 questionnaire responses and includes:
 
-- personal demographic information
-- socioeconomic information
-- GAD-7 item responses
-- total anxiety score
+| Data Type | Description |
+|---|---|
+| Demographic variables | Age, gender, marital status |
+| Socioeconomic variables | Education, income, occupation |
+| GAD-7 item responses | Individual questionnaire item scores |
+| GAD-7 total score | Main anxiety severity outcome |
 
-The total GAD-7 score is used as the main outcome variable in later analysis.
+The total GAD-7 score is used as the primary dependent variable for statistical testing, regression modeling, and subgroup comparison.
 
----
+## Tools Used
+
+| Category | Tools |
+|---|---|
+| Database / Querying | MySQL, SQL |
+| Data Analysis | Python, pandas, numpy |
+| Statistical Testing | scipy |
+| Modeling | scikit-learn |
+| Visualization | matplotlib |
+| Notebook Analysis | Jupyter Notebook |
+| Version Control | GitHub |
 
 ## Project Structure
 
-### 01_data_cleaning.sql
-This file cleans and prepares the raw dataset in MySQL.  
-Main work includes:
+```text
+General_Anxiety_Disorder-7/
+│
+├── 01_data_cleaning.sql
+├── 02_demographics.sql
+├── 03_bivariate_analysis.sql
+├── 04_bivariate_analysis_continued.ipynb
+├── 05_sensitivity_analysis.ipynb
+├── 06_regression_model.ipynb
+├── 07_cluster_analysis.ipynb
+└── README.md
+```
 
-- creating the database and table
-- importing survey data
-- checking missing values
-- handling variable formats
-- preparing the dataset for analysis
+Recommended future structure:
 
-### 02_demographics.sql
-This file provides descriptive statistics for demographic variables.  
-It includes:
+```text
+GAD7-Anxiety-Severity-Analytics/
+│
+├── README.md
+├── requirements.txt
+│
+├── sql/
+│   ├── 01_data_cleaning.sql
+│   ├── 02_demographics.sql
+│   └── 03_bivariate_analysis.sql
+│
+├── notebooks/
+│   ├── 04_bivariate_analysis_continued.ipynb
+│   ├── 05_sensitivity_analysis.ipynb
+│   ├── 06_regression_model.ipynb
+│   └── 07_cluster_analysis.ipynb
+│
+└── reports/
+    └── figures/
+```
 
-- sample size
-- gender distribution
-- age distribution
-- marriage distribution
-- education distribution
-- income distribution
-- occupation distribution
-- summary statistics for GAD-7 score
+## Analysis Workflow
 
-### 03_bivariate_analysis.sql
-This file explores bivariate relationships between demographic variables and anxiety score using SQL summary tables.  
-Main focus:
+### 1. Data Cleaning with SQL
 
-- comparing score across groups
-- checking mean, median, min, max, and standard deviation
-- identifying possible differences between demographic groups
+File:
 
-### 04_bivariate_analysis_contiued.ipynb
-This notebook continues the bivariate analysis in Python.  
-It includes more formal statistical testing, such as:
+```text
+01_data_cleaning.sql
+```
 
+Main steps:
+
+- Created the database and analysis table
+- Imported survey data
+- Checked missing values
+- Standardized variable formats
+- Prepared the dataset for demographic and anxiety-score analysis
+
+### 2. Demographic Descriptive Analysis
+
+File:
+
+```text
+02_demographics.sql
+```
+
+Main outputs:
+
+- Sample size
+- Gender distribution
+- Age distribution
+- Marital status distribution
+- Education distribution
+- Income distribution
+- Occupation distribution
+- Summary statistics for GAD-7 score
+
+### 3. Bivariate Analysis
+
+Files:
+
+```text
+03_bivariate_analysis.sql
+04_bivariate_analysis_continued.ipynb
+```
+
+The bivariate analysis compares anxiety scores across demographic and socioeconomic groups.
+
+Methods include:
+
+- Grouped SQL summary tables
+- Mean, median, minimum, maximum, and standard deviation comparison
 - Mann-Whitney U test
 - Kruskal-Wallis test
-- continuous age vs. score analysis
-- interpretation of group differences
+- Continuous age vs. anxiety score analysis
 
-### 05_sensitivity_analysis.ipynb
-This notebook examines whether changing variable grouping methods affects the results.  
-Main idea:
+### 4. Sensitivity Analysis
 
-- test different category definitions
-- check whether conclusions remain stable
-- evaluate robustness of findings
+File:
+
+```text
+05_sensitivity_analysis.ipynb
+```
+
+The sensitivity analysis tests whether conclusions remain stable under different variable grouping strategies.
 
 Examples include:
 
-- different age grouping strategies
-- ordered trend analysis
-- grouped demographic comparisons
+- Alternative age grouping methods
+- Ordered trend analysis
+- Different demographic category definitions
+- Comparison of result stability across grouping choices
 
-### 06_regression_model.ipynb
-This notebook builds regression models to study the relationship between demographic factors and anxiety score.
+### 5. Regression Modeling
 
-Main work includes:
+File:
 
-- selecting candidate variables
-- building regression models
-- interpreting coefficients
-- comparing model results
-- identifying important predictors of anxiety severity
+```text
+06_regression_model.ipynb
+```
 
-### 07_cluster_analysis.ipynb
-This notebook performs clustering analysis to identify demographic subgroups in the sample.
+Regression models are used to evaluate associations between demographic factors and GAD-7 anxiety score.
+
+Main steps:
+
+- Selected candidate predictors
+- Built regression models
+- Interpreted coefficients
+- Compared model specifications
+- Identified variables associated with higher or lower anxiety severity
+
+### 6. Clustering Analysis
+
+File:
+
+```text
+07_cluster_analysis.ipynb
+```
+
+The clustering analysis identifies demographic and socioeconomic subgroups in the sample.
 
 Main process:
 
-- test different encoding strategies
-- compare clustering quality using silhouette score
-- choose the final clustering model
-- profile each cluster by demographic characteristics
-- connect final clusters with GAD-7 score and severity level
+- Tested different encoding strategies
+- Compared clustering quality using silhouette score
+- Selected a final 4-cluster solution
+- Profiled each cluster by demographic characteristics
+- Compared GAD-7 score and anxiety severity across clusters
 
-The final clustering analysis shows that different demographic clusters have significantly different anxiety burdens.
+## Clustering Summary
 
----
+Several clustering approaches were tested. Earlier versions showed that clusters could be overly driven by individual variables such as gender or education.
 
-## Main Analysis Flow
-
-The project follows this general order:
-
-1. Clean and prepare the dataset
-2. Describe the sample characteristics
-3. Explore demographic differences in anxiety score
-4. Test robustness with sensitivity analysis
-5. Build regression models
-6. Use clustering to identify subgroup patterns
-7. Compare anxiety severity across final clusters
-
----
-
-## Clustering Analysis Summary
-
-In the clustering section, several preprocessing and encoding strategies were compared.
-
-Earlier clustering versions showed that results could be overly driven by single variables such as gender or education.  
 To improve interpretability, the final model used an **ordinal-aware encoding strategy**:
 
-- age, income, and education were treated as ordered/continuous variables
-- gender was kept as a binary variable
-- marriage was one-hot encoded
+- Age, income, and education were treated as ordered or continuous variables
+- Gender was kept as a binary variable
+- Marital status was one-hot encoded
 
 A **4-cluster solution** was selected based on:
 
-- silhouette score
-- cluster size balance
-- interpretability
+- Silhouette score
+- Cluster size balance
+- Interpretability
+- Meaningful differences in anxiety burden
 
-The final results showed that:
-
-- different demographic clusters had significantly different GAD-7 scores
-- the youngest and more socioeconomically disadvantaged cluster had the highest anxiety burden
-- the higher-income and higher-education cluster had the lowest anxiety burden
-
----
-
-## Methods Used
-
-This project uses both SQL and Python.
-
-### SQL
-Used for:
-
-- data cleaning
-- descriptive statistics
-- basic grouped summaries
-
-### Python
-Used for:
-
-- statistical testing
-- sensitivity analysis
-- regression modeling
-- clustering analysis
-- result interpretation
-
-Main Python libraries include:
-
-- pandas
-- numpy
-- scipy
-- scikit-learn
-- matplotlib
-
----
+The final clustering results suggest that demographic and socioeconomic profiles are meaningfully related to anxiety severity.
 
 ## Key Findings
 
-Some main findings from the project include:
+Main findings from the analysis include:
 
-- anxiety severity differs across demographic groups
-- younger and more socioeconomically disadvantaged respondents tend to show higher anxiety burden
-- higher education, higher income, and more stable marital status are generally associated with lower anxiety burden
-- clustering analysis supports that demographic and socioeconomic patterns are meaningfully related to GAD-7 severity
-
----
+- Anxiety severity differs across demographic and socioeconomic groups.
+- Younger and more socioeconomically disadvantaged respondents tend to show higher anxiety burden.
+- Higher education, higher income, and more stable marital status are generally associated with lower anxiety burden.
+- Regression modeling supports the relationship between selected demographic factors and GAD-7 score.
+- Clustering analysis identifies distinct respondent profiles with different anxiety severity patterns.
 
 ## Limitations
 
-This project also has some limitations:
+This project has several important limitations:
 
-- the analysis is based on observational survey data
-- causal conclusions cannot be made
-- clustering results may change depending on preprocessing strategy
-- some variables may be simplified by grouping
+- The dataset is observational, so causal conclusions cannot be made.
+- Self-reported survey responses may contain response bias.
+- Clustering results can vary depending on preprocessing and encoding choices.
+- Some demographic variables may lose detail when grouped into broader categories.
+- Additional validation would be needed before applying findings to real-world clinical or policy decisions.
 
-Even with these limitations, the project still provides useful insight into the relationship between demographic structure and anxiety severity.
+## Future Improvements
 
----
+Potential next steps:
 
-## Future Improvement
+- Add symptom-level clustering using individual GAD-7 item responses
+- Add post-hoc pairwise comparisons after overall significance tests
+- Improve visualization and add charts to the README
+- Compare regression and clustering findings more directly
+- Add a reproducible Python environment file
+- Reorganize SQL and notebooks into dedicated folders
+- Add an executive summary report
 
-Possible future work includes:
+## Skills Demonstrated
 
-- adding symptom-based clustering using GAD-7 item-level responses
-- testing more advanced models
-- improving visualization
-- adding post-hoc comparison after overall significance tests
-- comparing regression and clustering findings more directly
+This project demonstrates:
 
----
+- SQL data cleaning and survey data preparation
+- Descriptive demographic analysis
+- Bivariate statistical analysis
+- Non-parametric hypothesis testing
+- Sensitivity analysis
+- Regression modeling
+- Clustering and subgroup profiling
+- Healthcare / public health analytics interpretation
+- GitHub documentation and reproducible project organization
+
+## Resume Highlights
+
+Potential resume bullets based on this project:
+
+- Analyzed GAD-7 survey data using SQL and Python to evaluate anxiety severity patterns across demographic and socioeconomic groups.
+- Built regression models to assess factors associated with anxiety severity and conducted sensitivity analysis to evaluate the robustness of analytical findings.
+- Applied clustering techniques to identify distinct anxiety-risk profiles and compare GAD-7 burden across demographic subgroups.
+- Developed SQL-based data cleaning, descriptive analysis, and bivariate summary workflows for structured survey analytics.
+- Interpreted statistical and clustering results in a healthcare analytics context, translating model outputs into meaningful public health insights.
+
+## Suggested GitHub About Description
+
+```text
+Analyzed GAD-7 survey data using SQL and Python to study anxiety severity patterns, demographic associations, regression models, and clustering-based risk profiles.
+```
+
+Suggested topics:
+
+```text
+data-analysis, mental-health, healthcare-analytics, survey-analysis, python, sql, regression, clustering, gad7
+```
 
 ## Author Note
 
-This project was built as a step-by-step data analysis practice project combining SQL, Python, statistics, and data interpretation.  
-It is also a practice in organizing a full analysis workflow from raw data cleaning to final subgroup interpretation.
+This project was built as a step-by-step data analysis practice project combining SQL, Python, statistics, modeling, and healthcare-oriented data interpretation.
