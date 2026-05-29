@@ -61,9 +61,13 @@ The total GAD-7 score is used as the primary dependent variable for statistical 
 ```text
 GAD7-Anxiety-Severity-Data-Analysis/
 │
+├── .gitignore
 ├── README.md
 ├── requirements.txt
 │
+├── reports
+|   └── figures
+|
 ├── sql/
 │   ├── 01_data_cleaning.sql
 │   ├── 02_demographics.sql
