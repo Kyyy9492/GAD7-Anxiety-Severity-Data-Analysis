@@ -204,6 +204,38 @@ A **4-cluster solution** was selected based on:
 
 The final clustering results suggest that demographic and socioeconomic profiles are meaningfully related to anxiety severity.
 
+## Visual Results
+
+### GAD-7 Score by Age Group
+
+![GAD-7 by Age Group](reports/figures/gad7_by_age_group.png)
+
+Younger respondents show higher median GAD-7 scores, suggesting that anxiety burden is more concentrated among younger age groups in this sample.
+
+### GAD-7 Score by Education Level
+
+![GAD-7 by Education Level](reports/figures/gad7_by_education_level.png)
+
+Median GAD-7 scores are generally lower among respondents with higher education levels, suggesting a potential association between education and lower anxiety burden.
+
+### GAD-7 Score by Income Level
+
+![GAD-7 by Income Level](reports/figures/gad7_by_income_level.png)
+
+Lower-income respondents show higher median GAD-7 scores, while middle- and higher-income groups have relatively similar median scores.
+
+### Average GAD-7 Score by Cluster
+
+![Average GAD-7 by Cluster](reports/figures/gad7_by_cluster.png)
+
+The final clustering model identifies distinct demographic profiles with significantly different anxiety burdens, with Cluster 3 showing the highest average GAD-7 score.
+
+### GAD-7 Severity Distribution by Cluster
+
+![GAD-7 Severity by Cluster](reports/figures/gad7_severity_by_cluster.png)
+
+The severity distribution further shows that clusters differ not only in average score, but also in the share of respondents classified as moderate or severe.
+
 ## Key Findings
 
 Main findings from the analysis include:
